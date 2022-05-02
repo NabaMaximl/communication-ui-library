@@ -1,0 +1,98 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`storybook snapshot tests Storyshots UI Components/Error Bar Error Bar 1`] = `
+<div
+  className="css-117 body-0"
+  dir="ltr"
+>
+  <div
+    className="css-117"
+    data-uses-unhanded-props={true}
+    dir="ltr"
+  >
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "height": "100vh",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <div
+        className="css-1"
+      >
+        <div
+          className="ms-Stack css-2"
+          data-ui-id="error-bar-stack"
+        >
+          <div
+            aria-describedby="MessageBar1"
+            className="ms-MessageBar ms-MessageBar--error ms-MessageBar-multiline root-3"
+            role="region"
+          >
+            <div
+              className="ms-MessageBar-content content-4"
+            >
+              <div
+                aria-hidden={true}
+                className="ms-MessageBar-icon iconContainer-5"
+              >
+                <i
+                  aria-hidden={true}
+                  className="root-105 icon-14"
+                  data-icon-name="ErrorBadge"
+                >
+                  
+                </i>
+              </div>
+              <div
+                aria-live="assertive"
+                className="ms-MessageBar-text text-7"
+                id="MessageBar1"
+                role="alert"
+              >
+                <span
+                  className="ms-MessageBar-innerText innerText-8"
+                />
+              </div>
+              <button
+                aria-label="Close"
+                className="ms-Button ms-Button--icon ms-MessageBar-dismissal dismissal-15"
+                data-is-focusable={true}
+                onClick={[Function]}
+                onKeyDown={[Function]}
+                onKeyPress={[Function]}
+                onKeyUp={[Function]}
+                onMouseDown={[Function]}
+                onMouseUp={[Function]}
+                title="Close"
+                type="button"
+              >
+                <span
+                  className="ms-Button-flexContainer flexContainer-16"
+                  data-automationid="splitbuttonprimary"
+                >
+                  <i
+                    aria-hidden={true}
+                    className="ms-Icon root-105 css-23 ms-Button-icon icon-18"
+                    data-icon-name="Clear"
+                    style={
+                      Object {
+                        "fontFamily": "\\"FabricMDL2Icons\\"",
+                      }
+                    }
+                  >
+                    
+                  </i>
+                </span>
+              </button>
+            </div>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;

@@ -1,0 +1,207 @@
+import { Stack } from '@fluentui/react';
+import { Meta } from '@storybook/addon-docs';
+import { overviewPageImagesStackStyle } from './constants';
+
+<Meta id="overview" title="Overview" parameters={{ previewTabs: { canvas: { disable: true, hidden: true } } }} />
+
+<Stack horizontal horizontalAlign="space-between" style={overviewPageImagesStackStyle}>
+  <Stack.Item align="center">
+    <h2
+      style={{
+        fontFamily: '"Segoe UI", sans-serif',
+        color: 'rgba(0,0,0,.5)',
+        fontSize: '1.125rem',
+        fontWeight: '500',
+        border: 'none',
+        margin: '0rem 0rem 0.25rem 0rem',
+        lineHeight: '1.5rem'
+      }}
+    >
+      Azure Communication Services
+    </h2>
+    <h1
+      style={{
+        fontFamily: '"Segoe UI", sans-serif',
+        color: '#0078D4',
+        fontWeight: '600',
+        fontSize: '2rem',
+        margin: '0rem',
+        lineHeight: '2.5rem'
+      }}
+    >
+      UI Library
+    </h1>
+  </Stack.Item>
+  <Stack.Item align="center">
+    <img src="images/hero.svg" alt="UI Library Hero Image" style={{ maxHeight: '18.75rem' }} />
+  </Stack.Item>
+</Stack>
+
+**Azure Communication Services UI Library** makes it easy for you to build visual communications experiences.
+
+Building these experiences can be challenging.
+There are a lot of moving pieces including dynamic remote video galleries, local user controls, rendering incoming chat messages, etc.
+On top of that developers must worry about accessibility and localization for this experiences.
+**UI Library** is here to help!
+
+If you just want an out of the box communications experiences that you can drop into your application, we offer **Composites**.
+It takes only a couple lines of code to add and configure.
+
+In some cases, you might additional customization and control over the overall communication experiences, for that we offer **UI Components**.
+These components can be composed together to build calling and chat experiences. For example, a [Video Gallery](./?path=/story/ui-components-videotile--video-tile) or a [Message Thread](./?path=/story/ui-components-messagethread--message-thread).
+
+These UI client libraries all use [Microsoft's Fluent design language](https://developer.microsoft.com/fluentui/) and assets. Fluent UI provides a foundational layer for the UI Library and is actively used across Microsoft products.
+
+The UI Library for Azure Communication Services delivers on the Microsoft promise of diversity and inclusion.
+All the UI Library components are fully accessible based on Microsoft [accessibility](./?path=/docs/accessibility--page) guidelines.
+They provide full [localization](./?path=/docs/localization--page) to enable developers to tweak them to their target audience.
+
+Azure Communication Services support UI Library across Web (React) and Native Mobile ([iOS](https://docs.microsoft.com/azure/communication-services/quickstarts/ui-library/get-started-composites?tabs=kotlin&pivots=platform-ios) and [Android](https://docs.microsoft.com/azure/communication-services/quickstarts/ui-library/get-started-composites?tabs=kotlin&pivots=platform-android)). For Native Mobile, please refer to our [documentation](https://docs.microsoft.com/azure/communication-services/concepts/ui-library/ui-library-overview?pivots=platform-mobile).
+
+### Design your experience with Design Kit
+
+The same components and composites offered in the UI Library are available in the [Design Kit for Figma](https://www.figma.com/community/file/1095841357293210472), so you can quickly design and prototype your calling and chat experiences.
+
+## Installing UI Library
+
+```bash
+npm i @azure/communication-react
+```
+
+## Composites Overview
+
+Composites are higher-level components composed of UI components that deliver turn-key solutions for common communication scenarios using Azure Communication Services.
+Developers can easily instantiate the Composite using an Azure Communication Services access token and the required configuration attributed for call or chat.
+
+### Call composite
+
+[CallComposite](./?path=/story/composites-call-basicexample--basic-example) is providing a calling experience that allows users to start or join a call. Inside the experience users can configure their
+devices, participate in the call with video and see other participants, including those with video turn on.
+
+Here are visual examples of Call composite where participants have their camera turned off, then some ahve them turned on.
+People speaking with microphone unmuted will have their tile appearing with a blue border.
+
+<Stack horizontal horizontalAlign="space-between" tokens={{ childrenGap: '2rem' }} style={overviewPageImagesStackStyle}>
+  <Stack.Item align="center">
+    <img
+      src="images/callComposite_CamerasOff.png"
+      alt="Call composite where all participants have their camera turned off"
+    />
+  </Stack.Item>
+  <Stack.Item align="center">
+    <img
+      src="images/callComposite_CamerasOn.png"
+      alt="Call composite where some participants have their camera turned on"
+    />
+  </Stack.Item>
+</Stack>
+
+When joining a Microsoft Teams call ([Teams Interop experience](./?path=/docs/examples-teamsinterop-compliancebanner--compliance-banner)), the
+Call Composite includes a lobby experience where the user is waiting to be admitted into the call.
+
+<Stack horizontal horizontalAlign="space-between" tokens={{ childrenGap: '3rem' }} style={overviewPageImagesStackStyle}>
+  <Stack.Item align="center">
+    <img
+      src="images/callComposite_TeamsInterop_WaitingLobby.png"
+      alt="Call composite waiting to be admitted in a Teams meeting"
+    />
+  </Stack.Item>
+  <Stack.Item align="center" tokens={{ childrenGap: '2rem' }}>
+    <p style={{ textAlign: 'center' }}>{'Popup appearing in Teams to admit ACS participant'}</p>
+    <img
+      src="images/callComposite_TeamsInterop_AdmissionFromTeams.png"
+      alt="Popup in Teams to admit ACS participants"
+    />
+  </Stack.Item>
+</Stack>
+
+### Chat composite
+
+[ChatComposite](./?path=/story/composites-chat-basicexample--basic-example) is providing a chat experience where user can send and receive
+messages. Message thread events such as typing indicators, whether the message has been successfully delivered or read, or participants entering
+and leaving the chat are displayed to the user as part of the chat thread.
+
+Here is a visual example of Chat composite.
+
+<Stack style={overviewPageImagesStackStyle}>
+  <Stack.Item align="center">
+    <img src="images/chatComposite_NoParticipantsList.png" alt="Chat composite with the participants list" />
+  </Stack.Item>
+</Stack>
+
+## UI Component Overview
+
+Pure UI Components that can be used by developers to compose communication experiences, from stitching video tiles into a grid to showcase remote participants, to organizing components to fit your applications specifications.
+UI Components support customization to give the components the right feel and look to match an applications branding and style.
+
+Following are lists of components that can be used for specific areas.
+
+### Main Components for Calling
+
+<Stack tokens={{ childrenGap: '3rem' }} style={overviewPageImagesStackStyle}>
+  <Stack.Item align="center">
+    <img src="images/components_calling.png" alt="example of components that can be used for calling" />
+  </Stack.Item>
+  <Stack.Item align="center">
+    <img src="images/components_common.png" alt="example of components that can be used for chat" />
+  </Stack.Item>
+</Stack>
+
+| Component                                                                          | Description                                                                                        |
+| ---------------------------------------------------------------------------------- | -------------------------------------------------------------------------------------------------- |
+| [Grid Layout](./?path=/story/ui-components-gridlayout--grid-layout)                | Grid component to organize Video Tiles into an NxN grid                                            |
+| [Video Tile](./?path=/story/ui-components-videotile--video-tile)                   | Component that displays video stream when available and a default static component when not        |
+| [Control Bar](./?path=/story/ui-components-controlbar--control-bar)                | Container to organize DefaultButtons to hook up to specific call actions like mute or share screen |
+| [Video Gallery](./?path=/story/ui-components-videogallery--video-gallery)          | Turn-key video gallery component which dynamically changes as participants are added               |
+| [Participant Item](./?path=/story/ui-components-participantitem--participant-item) | Common component to render a call or chat participant including avatar and display name            |
+| [Participant List](./?path=/story/ui-components-participantlist--participant-list) | Common component to render a call or chat participant list including avatar and display name       |
+
+### Main Components for Chat
+
+<Stack style={overviewPageImagesStackStyle}>
+  <Stack.Item align="center">
+    <img src="images/components_chat.png" alt="example of components that can be used for chat" />
+  </Stack.Item>
+</Stack>
+
+| Component                                                                                                 | Description                                                                   |
+| --------------------------------------------------------------------------------------------------------- | ----------------------------------------------------------------------------- |
+| [Message Thread](./?path=/story/ui-components-messagethread--message-thread)                              | Container that renders chat messages, system messages, and custom messages    |
+| [Send Box](./?path=/story/ui-components-sendbox--send-box)                                                | Text input component with a discrete send button                              |
+| [Message Status Indicator](./?path=/story/ui-components-messagestatusindicator--message-status-indicator) | Multi-state message status indicator component to show status of sent message |
+| [Typing indicator](./?path=/story/ui-components-typingindicator--typing-indicator)                        | Text component to render the participants who are actively typing on a thread |
+
+## What UI Artifact is Best for my Project?
+
+Understanding these requirements will help you choose the right client library:
+
+- **How much customization do you desire?** Azure Communication core client libraries don't have a UX and are designed so you can build whatever UX you want. UI Library components provide UI assets at the cost of reduced customization.
+- **What platforms are you targeting?** Different platforms have different capabilities.
+
+Details about feature availability in the [UI Library is available here](./?path=/story/usecases--page), but key trade-offs are summarized below.
+
+| Client library / SDK  | Implementation Complexity | Customization Ability | Calling | Chat | [Teams Interop](https://docs.microsoft.com/azure/communication-services/concepts/teams-interop) |
+| --------------------- | ------------------------- | --------------------- | ------- | ---- | ----------------------------------------------------------------------------------------------- |
+| Composites            | Low                       | Low                   | ✔       | ✔    | ✔                                                                                               |
+| UI Components         | Medium                    | Medium                | ✔       | ✔    | ✔                                                                                               |
+| Core client libraries | High                      | High                  | ✔       | ✔    | ✔                                                                                               |
+
+## Platform support
+
+For Native Mobile support ([iOS](https://docs.microsoft.com/azure/communication-services/quickstarts/ui-library/get-started-composites?tabs=kotlin&pivots=platform-ios) and [Android](https://docs.microsoft.com/azure/communication-services/quickstarts/ui-library/get-started-composites?tabs=kotlin&pivots=platform-android)), please refer to our [documentation](https://docs.microsoft.com/azure/communication-services/concepts/ui-library/ui-library-overview?pivots=platform-mobile).
+
+| SDK                             | Windows                       | macOS                         | Ubuntu   | Linux    | Android    | iOS          |
+| ------------------------------- | ----------------------------- | ----------------------------- | -------- | -------- | ---------- | ------------ |
+| [UI SDK - Calling][calling-msv] | Chrome\*, new Edge            | Chrome\*, Safari\*\*          | Chrome\* | Chrome\* | Chrome\*\* | Safari\*\*\* |
+| [UI SDK - Chat][chat-msv]       | Firefox\*, Chrome\*, new Edge | Firefox\*, Chrome\*, Safari\* | Chrome\* | Chrome\* | Chrome\*   | Safari\*\*\* |
+
+\* The latest version is supported in addition to the
+previous two releases.
+
+\*\* Outgoing screen sharing is not supported for Chrome on Android.
+
+\*\*\* The latest version is supported in addition to the previous two releases. 1:1 calls are not supported on Safari. Outgoing screen sharing
+is not supported on iOS, device selection(for example choosing Bluetooth headset) is limited by OS, only one device available.
+
+[calling-msv]: https://docs.microsoft.com/en-us/azure/communication-services/concepts/voice-video-calling/calling-sdk-features#javascript-calling-sdk-support-by-os-and-browser
+[chat-msv]: https://docs.microsoft.com/en-us/azure/communication-services/concepts/chat/sdk-features#javascript-chat-sdk-support-by-os-and-browser

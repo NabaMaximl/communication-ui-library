@@ -1,0 +1,61 @@
+// Jest Snapshot v1, https://goo.gl/fbAQLP
+
+exports[`storybook snapshot tests Storyshots UI Components/Typing Indicator Typing Indicator 1`] = `
+<div
+  className="css-117 body-0"
+  dir="ltr"
+>
+  <div
+    className="css-117"
+    data-uses-unhanded-props={true}
+    dir="ltr"
+  >
+    <div
+      style={
+        Object {
+          "alignItems": "center",
+          "display": "flex",
+          "height": "100vh",
+          "justifyContent": "center",
+        }
+      }
+    >
+      <div
+        className="ms-Stack css-109 css-1"
+      >
+        <div
+          aria-label="User1, User2 are typing ..."
+          className="css-110"
+          data-ui-id="typing-indicator"
+          role="status"
+        >
+          <span
+            className="css-2"
+          >
+            <span
+              className="css-2"
+            >
+              User1
+            </span>
+            <span
+              className="css-2"
+            >
+              , 
+            </span>
+            <span
+              className="css-2"
+            >
+              User2
+            </span>
+          </span>
+          <span
+            className="css-2"
+          >
+             are typing ...
+          </span>
+        </div>
+      </div>
+    </div>
+  </div>
+</div>
+`;
