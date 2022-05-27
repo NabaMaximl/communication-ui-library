@@ -45,10 +45,10 @@ import {
   ChatMessage,
   CustomMessage,
   SystemMessage,
-  CommunicationParticipant,
+  // CommunicationParticipant,
   OnRenderAvatarCallback,
-  ParticipantAddedSystemMessage,
-  ParticipantRemovedSystemMessage,
+  // ParticipantAddedSystemMessage,
+  // ParticipantRemovedSystemMessage,
   Message,
   ReadReceiptsBySenderId
 } from '../types';
@@ -241,13 +241,13 @@ const DefaultJumpToNewMessageButton = (props: JumpToNewMessageButtonProps): JSX.
   );
 };
 
-const generateParticipantsStr = (participants: CommunicationParticipant[], defaultName: string): string =>
-  participants
-    .map(
-      (participant) =>
-        `${!participant.displayName || participant.displayName === '' ? defaultName : participant.displayName}`
-    )
-    .join(', ');
+// const generateParticipantsStr = (participants: CommunicationParticipant[], defaultName: string): string =>
+//   participants
+//     .map(
+//       (participant) =>
+//         `${!participant.displayName || participant.displayName === '' ? defaultName : participant.displayName}`
+//     )
+//     .join(', ');
 
 /**
  * A component to render a single message.
@@ -256,33 +256,33 @@ const generateParticipantsStr = (participants: CommunicationParticipant[], defau
  */
 export type MessageRenderer = (props: MessageProps) => JSX.Element;
 
-const ParticipantSystemMessageComponent = ({
-  message,
-  style,
-  defaultName
-}: {
-  message: ParticipantAddedSystemMessage | ParticipantRemovedSystemMessage;
-  style?: ComponentSlotStyle;
-  defaultName: string;
-}): JSX.Element => {
-  const { strings } = useLocale();
-  const participantsStr = generateParticipantsStr(message.participants, defaultName);
-  const messageSuffix =
-    message.systemMessageType === 'participantAdded'
-      ? strings.messageThread.participantJoined
-      : strings.messageThread.participantLeft;
+// const ParticipantSystemMessageComponent = ({
+//   message,
+//   style,
+//   defaultName
+// }: {
+//   message: ParticipantAddedSystemMessage | ParticipantRemovedSystemMessage;
+//   style?: ComponentSlotStyle;
+//   defaultName: string;
+// }): JSX.Element => {
+//   const { strings } = useLocale();
+//   const participantsStr = generateParticipantsStr(message.participants, defaultName);
+//   const messageSuffix =
+//     message.systemMessageType === 'participantAdded'
+//       ? strings.messageThread.participantJoined
+//       : strings.messageThread.participantLeft;
 
-  if (participantsStr !== '') {
-    return (
-      <SystemMessageComponent
-        iconName={(message.iconName ? message.iconName : '') as SystemMessageIconTypes}
-        content={`${participantsStr} ${messageSuffix}`}
-        containerStyle={style}
-      />
-    );
-  }
-  return <></>;
-};
+//   if (participantsStr !== '') {
+//     return (
+//       <SystemMessageComponent
+//         iconName={(message.iconName ? message.iconName : '') as SystemMessageIconTypes}
+//         content={`${participantsStr} ${messageSuffix}`}
+//         containerStyle={style}
+//       />
+//     );
+//   }
+//   return <></>;
+// };
 
 const DefaultSystemMessage: MessageRenderer = (props: MessageProps) => {
   const message = props.message;
@@ -300,11 +300,12 @@ const DefaultSystemMessage: MessageRenderer = (props: MessageProps) => {
         case 'participantAdded':
         case 'participantRemoved':
           return (
-            <ParticipantSystemMessageComponent
-              message={message}
-              style={props.messageContainerStyle}
-              defaultName={props.strings.noDisplayNameSub}
-            />
+            // <ParticipantSystemMessageComponent
+            //   message={message}
+            //   style={props.messageContainerStyle}
+            //   defaultName={props.strings.noDisplayNameSub}
+            // />
+            <></>
           );
       }
   }

@@ -138,8 +138,8 @@ export type MessageThreadSelector = (
 };
 
 /** Returns `true` if the message has participants and at least one participant has a display name. */
-const hasValidParticipant = (chatMessage: ChatMessageWithStatus): boolean =>
-  !!chatMessage.content?.participants && chatMessage.content.participants.some((p) => !!p.displayName);
+// const hasValidParticipant = (chatMessage: ChatMessageWithStatus): boolean =>
+//   !!chatMessage.content?.participants && chatMessage.content.participants.some((p) => !!p.displayName);
 
 /**
  * Selector for {@link MessageThread} component.
@@ -182,8 +182,8 @@ export const messageThreadSelector: MessageThreadSelector = createSelector(
             message.type.toLowerCase() === ACSKnownMessageType.text ||
             message.type.toLowerCase() === ACSKnownMessageType.richtextHtml ||
             message.type.toLowerCase() === ACSKnownMessageType.html ||
-            (message.type === ACSKnownMessageType.participantAdded && hasValidParticipant(message)) ||
-            (message.type === ACSKnownMessageType.participantRemoved && hasValidParticipant(message)) ||
+            // (message.type === ACSKnownMessageType.participantAdded && hasValidParticipant(message)) ||
+            // (message.type === ACSKnownMessageType.participantRemoved && hasValidParticipant(message)) ||
             // TODO: Add support for topicUpdated system messages in MessageThread component.
             // message.type === ACSKnownMessageType.topicUpdated ||
             message.clientMessageId !== undefined
