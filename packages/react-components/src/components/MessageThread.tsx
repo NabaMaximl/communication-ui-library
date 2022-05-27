@@ -507,6 +507,7 @@ export type MessageThreadProps = {
   disableJumpToNewMessageButton?: boolean;
   /**
    * Whether the date of each message is displayed or not.
+   * It is ignored when onDisplayDateTimeString is supplied.
    *
    * @defaultValue `false`
    */
@@ -617,6 +618,13 @@ export type MessageThreadProps = {
    * this function will be called with the data inside `fileSharingMetadata` key.
    */
   fileDownloadHandler?: FileDownloadHandler;
+
+  /* @conditional-compile-remove(date-time-customization) */
+  /**
+   * Optional function to provide customized date format.
+   * @beta
+   */
+  onDisplayDateTimeString?: (messageDate: Date) => string;
 };
 
 /**
@@ -708,7 +716,9 @@ export const MessageThread = (props: MessageThreadProps): JSX.Element => {
     onRenderMessage,
     onUpdateMessage,
     onDeleteMessage,
-    onSendMessage
+    onSendMessage,
+    /* @conditional-compile-remove(date-time-customization) */
+    onDisplayDateTimeString
   } = props;
 
   const onRenderFileDownloads = onRenderFileDownloadsTrampoline(props);
@@ -981,6 +991,8 @@ export const MessageThread = (props: MessageThreadProps): JSX.Element => {
             showMessageStatus={showMessageStatus}
             messageStatus={messageProps.message.status}
             onActionButtonClick={onActionButtonClickMemo}
+            /* @conditional-compile-remove(date-time-customization) */
+            onDisplayDateTimeString={onDisplayDateTimeString}
           />
         );
       }
@@ -995,7 +1007,9 @@ export const MessageThread = (props: MessageThreadProps): JSX.Element => {
       onActionButtonClickMemo,
       onRenderFileDownloads,
       props.userId,
-      showMessageStatus
+      showMessageStatus,
+      /* @conditional-compile-remove(date-time-customization) */
+      onDisplayDateTimeString
     ]
   );
 
