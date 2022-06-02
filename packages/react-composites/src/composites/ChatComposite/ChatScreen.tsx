@@ -60,6 +60,7 @@ export type ChatScreenProps = {
   hasFocusOnMount?: 'sendBoxTextField';
   fileSharing?: FileSharingOptions;
   formFactor?: 'desktop' | 'mobile';
+  context?: Record<string, any>;
 };
 
 /**
@@ -114,7 +115,8 @@ export const ChatScreen = (props: ChatScreenProps): JSX.Element => {
     options,
     styles,
     fileSharing,
-    formFactor
+    formFactor,
+    context
   } = props;
 
   const defaultNumberOfChatMessagesToReload = 5;
@@ -236,6 +238,7 @@ export const ChatScreen = (props: ChatScreenProps): JSX.Element => {
               <Stack grow>
                 <SendBox
                   {...sendBoxProps}
+                  context={context ? context : undefined}
                   autoFocus={options?.autoFocus}
                   styles={sendBoxStyles}
                   /* @conditional-compile-remove(file-sharing) */

@@ -1,6 +1,6 @@
 {
   "name": "@azure/communication-react",
-  "version": "1.2.2-beta.3",
+  "version": "1.2.2-beta.8",
   "sideEffects": false,
   "description": "React library for building modern communication user experiences utilizing Azure Communication Services",
   "keywords": [

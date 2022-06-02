@@ -44,6 +44,7 @@ export interface ChatCompositeProps extends BaseCompositeProps<ChatCompositeIcon
    * @defaultValue 'desktop'
    */
   formFactor?: 'desktop' | 'mobile';
+  context?: Record<string, any>;
 }
 
 /**
@@ -100,7 +101,8 @@ export const ChatComposite = (props: ChatCompositeProps): JSX.Element => {
     onFetchAvatarPersonaData,
     onRenderTypingIndicator,
     onRenderMessage,
-    onFetchParticipantMenuItems
+    onFetchParticipantMenuItems,
+    context
   } = props;
 
   const formFactor = props['formFactor'] || 'desktop';
@@ -123,6 +125,7 @@ export const ChatComposite = (props: ChatCompositeProps): JSX.Element => {
       <BaseProvider {...props}>
         <ChatAdapterProvider adapter={adapter}>
           <ChatScreen
+            context={context ? context : undefined}
             formFactor={formFactor}
             options={options}
             onFetchAvatarPersonaData={onFetchAvatarPersonaData}

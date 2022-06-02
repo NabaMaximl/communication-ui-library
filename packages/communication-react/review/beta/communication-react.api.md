@@ -981,6 +981,8 @@ export type ChatCompositeOptions = {
 // @public
 export interface ChatCompositeProps extends BaseCompositeProps<ChatCompositeIcons> {
     adapter: ChatAdapter;
+    // (undocumented)
+    context?: Record<string, any>;
     formFactor?: 'desktop' | 'mobile';
     onRenderMessage?: (messageProps: MessageProps, defaultOnRender?: MessageRenderer) => JSX.Element;
     onRenderTypingIndicator?: (typingUsers: CommunicationParticipant[]) => JSX.Element;
@@ -2322,6 +2324,7 @@ export interface SendBoxProps {
     // @beta
     activeFileUploads?: ActiveFileUpload[];
     autoFocus?: 'sendBoxTextField';
+    context?: Record<string, any>;
     disabled?: boolean;
     // @beta
     onCancelFileUpload?: (fileId: string) => void;
@@ -2329,7 +2332,7 @@ export interface SendBoxProps {
     onRenderFileUploads?: () => JSX.Element;
     onRenderIcon?: (isHover: boolean) => JSX.Element;
     onRenderSystemMessage?: (systemMessage: string | undefined) => React_2.ReactElement;
-    onSendMessage?: (content: string) => Promise<void>;
+    onSendMessage?: (content: string, messageOptios?: any) => Promise<void>;
     onTyping?: () => Promise<void>;
     strings?: Partial<SendBoxStrings>;
     styles?: SendBoxStylesProps;

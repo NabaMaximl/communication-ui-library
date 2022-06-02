@@ -124,7 +124,7 @@ export interface SendBoxProps {
   /**
    * Optional callback called when message is sent
    */
-  onSendMessage?: (content: string) => Promise<void>;
+  onSendMessage?: (content: string, messageOptios?: any) => Promise<void>;
   /**
    * Optional callback called when user is typing
    */
@@ -183,6 +183,11 @@ export interface SendBoxProps {
    * @beta
    */
   onCancelFileUpload?: (fileId: string) => void;
+
+  /**
+   * thread context
+   */
+  context?: Record<string, any>;
 }
 
 /**
@@ -203,7 +208,8 @@ export const SendBox = (props: SendBoxProps): JSX.Element => {
     onRenderIcon,
     onRenderSystemMessage,
     styles,
-    autoFocus
+    autoFocus,
+    context
   } = props;
   const theme = useTheme();
   const localeStrings = useLocale().strings.sendBox;
@@ -236,7 +242,7 @@ export const SendBox = (props: SendBoxProps): JSX.Element => {
     // we dont want to send empty messages including spaces, newlines, tabs
     // Message can be empty if there is a valid file upload
     if (!EMPTY_MESSAGE_REGEX.test(textValue) || hasFile(props)) {
-      onSendMessage && onSendMessage(sanitizeText(textValue));
+      onSendMessage && onSendMessage(sanitizeText(textValue), { metadata: context ? { ...context } : {} });
       setTextValue('');
     }
     sendTextFieldRef.current?.focus();

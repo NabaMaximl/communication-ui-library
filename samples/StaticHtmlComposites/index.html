@@ -44,7 +44,15 @@
         threadId: threadId,
         endpoint: endpoint,
         userId: user,
-        token: token
+        token: token,
+        tokenRefresher: () => {},
+        locale: 'en',
+        context: {
+          userId: 'user1',
+          entityId: 'foo',
+          tenantId: 'bar',
+          tenantName: 'foo_bar'
+        }
       },
       document.getElementById('chat-container'),
       {
@@ -55,6 +63,9 @@
     );
 
     await chatAdapter.sendMessage('Hello to you! 👋');
+    chatAdapter.on('messageSent', (event) => {
+      console.log('Message sent details yes', event);
+    });
 
     window.onbeforeunload = () => {
       callAdapter.dispose();

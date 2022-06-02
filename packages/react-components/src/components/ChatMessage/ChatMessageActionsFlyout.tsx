@@ -100,17 +100,17 @@ export const ChatMessageActionFlyout = (props: ChatMessageActionFlyoutProps): JS
         },
         iconProps: { iconName: 'MessageEdit', styles: menuIconStyleSet },
         onClick: props.onEditClick
-      },
-      {
-        key: 'Remove',
-        text: props.strings.removeMessage,
-        itemProps: { styles: props.increaseFlyoutItemSize ? menuItemIncreasedSizeStyles : undefined },
-        iconProps: {
-          iconName: 'MessageRemove',
-          styles: menuIconStyleSet
-        },
-        onClick: props.onRemoveClick
       }
+      // {
+      //   key: 'Remove',
+      //   text: props.strings.removeMessage,
+      //   itemProps: { styles: props.increaseFlyoutItemSize ? menuItemIncreasedSizeStyles : undefined },
+      //   iconProps: {
+      //     iconName: 'MessageRemove',
+      //     styles: menuIconStyleSet
+      //   },
+      //   onClick: props.onRemoveClick
+      // }
     ];
     // only show read by x of x if more than 3 participants in total including myself
     // TODO: change strings.messageReadCount to be required if we can fallback to our own en-us strings for anything that Contoso doesn't provide

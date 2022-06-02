@@ -399,7 +399,8 @@ const convertEventToChatMessage = (event: ChatMessageReceivedEvent): ChatMessage
     sender: event.sender,
     senderDisplayName: event.senderDisplayName,
     sequenceId: '',
-    createdOn: new Date(event.createdOn)
+    createdOn: new Date(event.createdOn),
+    metadata: event.metadata
   };
 };
 

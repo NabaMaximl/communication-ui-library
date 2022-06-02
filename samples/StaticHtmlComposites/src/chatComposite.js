@@ -15,7 +15,7 @@ import {
 } from '@azure/communication-react';
 
 export const loadChatComposite = async function (args, htmlElement, props) {
-  const { userId, token, endpoint, threadId, displayName, tokenRefresher, locale } = args;
+  const { userId, token, endpoint, threadId, displayName, tokenRefresher, locale, context } = args;
   const options = {
     token: token,
     tokenRefresher: tokenRefresher,
@@ -35,7 +35,11 @@ export const loadChatComposite = async function (args, htmlElement, props) {
     threadId
   });
   ReactDOM.render(
-    React.createElement(ChatComposite, { ...props, adapter, locale: localMap[locale] }, null),
+    React.createElement(
+      ChatComposite,
+      { ...props, adapter, locale: localMap[locale], context: context ? context : undefined },
+      null
+    ),
     htmlElement
   );
   return adapter;
